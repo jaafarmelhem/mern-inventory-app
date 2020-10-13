@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "ef9e7a6a-9f63-4215-9387-4db4ebac3648",
+		"name": "MERN challenge",
+		"description": "create a todo app using MERN technologies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add a device",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"device_description\" : \"My first todo\",\r\n    \"device_responsible\" : \"Sebastian\",\r\n    \"device_priority\" : \"Medium\",\r\n    \"device_completed\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/devices/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"devices",
+						"add"
+					]
+				},
+				"description": "first call"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all devices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a device by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/devices/5f859232114404620ce56ad2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"devices",
+						"5f859232114404620ce56ad2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a device, specific by id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"device_description\" : \"My first todo\",\r\n    \"device_responsible\" : \"Sebastian\",\r\n    \"device_priority\" : \"Medium\",\r\n    \"device_completed\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/devices/update/5f85929e114404620ce56ad3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"devices",
+						"update",
+						"5f85929e114404620ce56ad3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a device",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/devices/delete/5f8592df114404620ce56ad4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"devices",
+						"delete",
+						"5f8592df114404620ce56ad4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
