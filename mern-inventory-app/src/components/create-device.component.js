@@ -6,18 +6,25 @@ export default class CreateDevice extends Component {
 
     constructor(props) {
         super(props);
-
+        this.onChangeDeviceName = this.onChangeDeviceName.bind(this);
         this.onChangeDeviceDescription = this.onChangeDeviceDescription.bind(this);
         this.onChangeDeviceResponsible = this.onChangeDeviceResponsible.bind(this);
         this.onChangeDevicePriority = this.onChangeDevicePriority.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
+            device_name: '',
             device_description: '',
             device_responsible: '',
             device_priority: '',
             device_completed: false
         }
+    }
+
+    onChangeDeviceName(e) {
+        this.setState({
+            device_name: e.target.value
+        });
     }
 
     onChangeDeviceDescription(e) {
@@ -42,11 +49,13 @@ export default class CreateDevice extends Component {
         e.preventDefault();
         
         console.log(`Form submitted:`);
+        console.log(`Device Name: ${this.state.device_name}`);
         console.log(`Device Description: ${this.state.device_description}`);
         console.log(`Device Responsible: ${this.state.device_responsible}`);
         console.log(`Device Priority: ${this.state.device_priority}`);
         
         const newDevice = {
+            device_name: this.state.device_name,
             device_description: this.state.device_description,
             device_responsible: this.state.device_responsible,
             device_priority: this.state.device_priority,
@@ -57,6 +66,7 @@ export default class CreateDevice extends Component {
             .then(res => console.log(res.data));
 
         this.setState({
+            device_name: '',
             device_description: '',
             device_responsible: '',
             device_priority: '',
@@ -69,6 +79,16 @@ export default class CreateDevice extends Component {
             <div style={{marginTop: 10}}>
                 <h3>Create New Device</h3>
                 <form onSubmit={this.onSubmit}>
+
+                    <div className="form-group"> 
+                        <label>Name: </label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.device_name}
+                                onChange={this.onChangeDeviceName}
+                                />
+                    </div>
+
                     <div className="form-group"> 
                         <label>Description: </label>
                         <input  type="text"

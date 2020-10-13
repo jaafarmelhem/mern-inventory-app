@@ -1,7 +1,5 @@
 This is a simple inventory app built on MERN technologies.
 
-This project is according to the tutorial https://codingthesmartway.com/the-mern-stack-tutorial-building-a-react-crud-application-from-start-to-finish-part-1/
-
 To run the app
 
 run the following commands at the same time

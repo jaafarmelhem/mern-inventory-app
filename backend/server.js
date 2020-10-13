@@ -40,6 +40,7 @@ deviceRoutes.route('/update/:id').post(function(req, res) {
         if (!device)
             res.status(404).send("data is not found");
         else
+            device.device_name = req.body.device_name;
             device.device_description = req.body.device_description;
             device.device_responsible = req.body.device_responsible;
             device.device_priority = req.body.device_priority;

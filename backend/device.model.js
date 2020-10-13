@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Device = new Schema({
+    device_name : {
+        type: String
+    },
     device_description: {
         type: String
     },
