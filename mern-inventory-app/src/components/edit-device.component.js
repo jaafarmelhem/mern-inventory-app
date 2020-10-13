@@ -7,6 +7,7 @@ export default class EditDevice extends Component {
         super(props);
         this.onChangeDeviceName = this.onChangeDeviceName.bind(this);
         this.onChangeDeviceDescription = this.onChangeDeviceDescription.bind(this);
+        this.onChangeDeviceQuantity = this.onChangeDeviceQuantity.bind(this);
         this.onChangeDeviceResponsible = this.onChangeDeviceResponsible.bind(this);
         this.onChangeDevicePriority = this.onChangeDevicePriority.bind(this);
         this.onChangeDeviceCompleted = this.onChangeDeviceCompleted.bind(this);
@@ -15,6 +16,7 @@ export default class EditDevice extends Component {
         this.state = {
             device_name: '',
             device_description: '',
+            device_quantity : '',
             device_responsible: '',
             device_priority: '',
             device_completed: false
@@ -49,6 +51,12 @@ export default class EditDevice extends Component {
         });
     }
 
+    onChangeDeviceQuantity(e) {
+        this.setState({
+            device_quantity: e.target.value
+        });
+    }
+    
     onChangeDeviceResponsible(e) {
         this.setState({
             device_responsible: e.target.value
@@ -72,6 +80,7 @@ export default class EditDevice extends Component {
         const obj = {
             device_name: this.state.device_name,
             device_description: this.state.device_description,
+            device_quantity: this.state.device_quantity,
             device_responsible: this.state.device_responsible,
             device_priority: this.state.device_priority,
             device_completed: this.state.device_completed
@@ -105,6 +114,16 @@ export default class EditDevice extends Component {
                                 onChange={this.onChangeDeviceDescription}
                                 />
                     </div>
+
+                    <div className="form-group"> 
+                        <label>Quantity: </label>
+                        <input  type="number"
+                                className="form-control"
+                                value={this.state.device_quantity}
+                                onChange={this.onChangeDeviceQuantity}
+                                />
+                    </div>
+
                     <div className="form-group">
                         <label>Responsible: </label>
                         <input 

@@ -6,6 +6,7 @@ const Device = props => (
     <tr>
         <td className={props.device.device_completed ? 'completed' : ''}>{props.device.device_name}</td>
         <td className={props.device.device_completed ? 'completed' : ''}>{props.device.device_description}</td>
+        <td className={props.device.device_completed ? 'completed' : ''}>{props.device.device_quantity}</td>
         <td className={props.device.device_completed ? 'completed' : ''}>{props.device.device_responsible}</td>
         <td className={props.device.device_completed ? 'completed' : ''}>{props.device.device_priority}</td>
         <td>
@@ -46,6 +47,7 @@ export default class DevicesList extends Component {
                         <tr>
                             <th>Name</th>
                             <th>Description</th>
+                            <th>Quantity</th>
                             <th>Responsible</th>
                             <th>Priority</th>
                             <th>Action</th>

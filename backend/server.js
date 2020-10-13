@@ -42,6 +42,7 @@ deviceRoutes.route('/update/:id').post(function(req, res) {
         else
             device.device_name = req.body.device_name;
             device.device_description = req.body.device_description;
+            device.device_quantity = req.body.device_quantity;
             device.device_responsible = req.body.device_responsible;
             device.device_priority = req.body.device_priority;
             device.device_completed = req.body.device_completed;

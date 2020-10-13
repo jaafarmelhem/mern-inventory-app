@@ -8,6 +8,9 @@ let Device = new Schema({
     device_description: {
         type: String
     },
+    device_quantity: {
+        type: Number
+    },
     device_responsible: {
         type: String
     },

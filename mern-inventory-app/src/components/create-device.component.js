@@ -8,6 +8,7 @@ export default class CreateDevice extends Component {
         super(props);
         this.onChangeDeviceName = this.onChangeDeviceName.bind(this);
         this.onChangeDeviceDescription = this.onChangeDeviceDescription.bind(this);
+        this.onChangeDeviceQuantity = this.onChangeDeviceQuantity.bind(this);
         this.onChangeDeviceResponsible = this.onChangeDeviceResponsible.bind(this);
         this.onChangeDevicePriority = this.onChangeDevicePriority.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -15,6 +16,7 @@ export default class CreateDevice extends Component {
         this.state = {
             device_name: '',
             device_description: '',
+            device_quantity: '',
             device_responsible: '',
             device_priority: '',
             device_completed: false
@@ -33,6 +35,12 @@ export default class CreateDevice extends Component {
         });
     }
 
+    onChangeDeviceQuantity(e) {
+        this.setState({
+            device_quantity : e.target.value
+        });
+    }
+    
     onChangeDeviceResponsible(e) {
         this.setState({
             device_responsible: e.target.value
@@ -51,12 +59,14 @@ export default class CreateDevice extends Component {
         console.log(`Form submitted:`);
         console.log(`Device Name: ${this.state.device_name}`);
         console.log(`Device Description: ${this.state.device_description}`);
+        console.log(`Device Quantity: ${this.state.device_quantity}`);
         console.log(`Device Responsible: ${this.state.device_responsible}`);
         console.log(`Device Priority: ${this.state.device_priority}`);
         
         const newDevice = {
             device_name: this.state.device_name,
             device_description: this.state.device_description,
+            device_quantity: this.state.device_quantity,
             device_responsible: this.state.device_responsible,
             device_priority: this.state.device_priority,
             device_completed: this.state.device_completed
@@ -97,6 +107,16 @@ export default class CreateDevice extends Component {
                                 onChange={this.onChangeDeviceDescription}
                                 />
                     </div>
+
+                    <div className="form-group"> 
+                        <label>Quantity: </label>
+                        <input  type="number"
+                                className="form-control"
+                                value={this.state.device_quantity}
+                                onChange={this.onChangeDeviceQuantity}
+                                />
+                    </div>
+
                     <div className="form-group">
                         <label>Responsible: </label>
                         <input 
