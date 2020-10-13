@@ -28,6 +28,20 @@ deviceRoutes.route('/').get(function(req, res) {
     });
 });
 
+deviceRoutes.route('/delete/:id').post(function(req, res) {
+    Device.findById(req.params.id, function(err, device) {
+        if (!device)
+            res.status(404).send("data is not found");
+        else
+            device.remove().then(device => {
+                res.json('Device deleted!');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
 deviceRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
     Device.findById(id, function(err, device) {
