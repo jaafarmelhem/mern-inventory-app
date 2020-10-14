@@ -7,6 +7,9 @@ import CreateDevice from "./components/create-device.component";
 import EditDevice from "./components/edit-device.component";
 import DevicesList from "./components/devices-list.component";
 
+import signup from "./components/signup.component";
+
+
 import logo from "./logo.png";
 
 class App extends Component {
@@ -29,11 +32,25 @@ class App extends Component {
                 </li>
               </ul>
             </div>
+            <div className="collpase navbar-collapse">
+              <ul className="navbar-nav mr-auto">
+                <li className="navbar-item">          
+                    <Link to="/signup" className="nav-link">Sign Up Screen</Link>
+                </li>
+                <li className="navbar-item">          
+                    <Link to="/login" className="nav-link">Log in Screen</Link>
+                </li>
+                <li className="navbar-item">           
+                    <Link to="/profile" className="nav-link">Profile Page</Link>
+                </li>
+              </ul>
+            </div>
           </nav>
           <br/>
           <Route path="/" exact component={DevicesList} />
           <Route path="/edit/:id" component={EditDevice} />
           <Route path="/create" component={CreateDevice} />
+          <Route path="/signup" component={signup} />
         </div>
       </Router>
     );

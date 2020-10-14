@@ -18,3 +18,6 @@ in the folder mern-inventory-app, containing the front end app
 
 
 and the app will start at http://localhost:3000/
+
+right now, I follow the tutorial https://medium.com/@rustyonrampage/using-oauth-2-0-along-with-jwt-in-node-express-9e0063d911ed
+in implementing OAuth2
